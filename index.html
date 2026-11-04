@@ -1,119 +1,230 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#101e33">
-<title>The Grand Line Club — Anime Postcard Studio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10172a">
+<title>The Grand Line Club — Anime Postcard Booth</title>
 <style>
-:root{--ink:#101e33;--cream:#fff6dc;--gold:#ffca65;--muted:#bed0dc}
+:root{--ink:#10172a;--panel:#19243c;--cream:#fff5df;--gold:#f4c76a;--muted:#b9c3d8;--pink:#ff8da1}
 *{box-sizing:border-box}
-body{margin:0;background:var(--ink);color:var(--cream);font-family:system-ui,-apple-system,Segoe UI,sans-serif}
-.page{min-height:100vh;background:radial-gradient(circle at 12% 8%,#315a6a 0,transparent 31%),radial-gradient(circle at 94% 75%,#513b58 0,transparent 33%),var(--ink)}
-header,main,footer{max-width:1080px;margin:auto;padding-left:20px;padding-right:20px}
-header{padding-top:24px;padding-bottom:20px;border-bottom:1px solid #ffffff22}
-.kicker{color:var(--gold);font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase}
-.brand{font-family:Georgia,serif;font-size:25px;font-weight:bold;margin:8px 0 0}
-main{padding-top:42px;padding-bottom:42px}
-h1,h2{font-family:Georgia,serif}
-h1{font-size:clamp(32px,7vw,48px);margin:12px 0}
-.intro{color:var(--muted);line-height:1.6;max-width:650px}
-.panel{margin-top:30px;padding:clamp(18px,4vw,34px);border:1px solid #ffffff25;border-radius:26px;background:#192c42;box-shadow:0 24px 70px #050d1d55}
-.grid{display:grid;grid-template-columns:1fr;gap:26px}
-@media(min-width:780px){.grid{grid-template-columns:.9fr 1.1fr;gap:38px}}
-.scenes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:16px 0 24px}
-.scene{padding:0;overflow:hidden;text-align:left;border:2px solid #ffffff35;border-radius:17px;background:#273d52;color:var(--cream);font:inherit;cursor:pointer}
-.scene[aria-pressed=true]{border-color:var(--gold);box-shadow:0 0 0 2px #ffca6535}
-.art{height:112px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-size:32px;background:linear-gradient(135deg,var(--a),var(--b))}
-.scene span{display:block;padding:11px;font-weight:750;font-size:14px}
-label{display:block;font-weight:700;margin:12px 0 8px}
-input[type=file]{width:100%;padding:12px;border:1px solid #ffffff40;border-radius:12px;background:#ffffff0d;color:white}
-button.primary{border:0;border-radius:12px;background:var(--gold);color:#172337;padding:14px 20px;font-weight:800;font-size:16px;cursor:pointer}
-button.primary:disabled{opacity:.55;cursor:wait}
-.preview{position:relative;aspect-ratio:4/3;border:4px solid #f9e9c9;border-radius:18px;overflow:hidden;background:linear-gradient(135deg,#ec9671,#326d83);display:flex;align-items:center;justify-content:center}
-.preview-art{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;font-size:clamp(42px,10vw,90px);background:linear-gradient(135deg,var(--a),var(--b))}
-.photo-frame{position:absolute;z-index:2;left:8%;top:12%;width:49%;height:71%;padding:8px 8px 24px;background:#fff9eb;box-shadow:0 15px 35px #17233777;transform:rotate(-5deg)}
-.photo-frame img{width:100%;height:100%;object-fit:cover;display:none}
-.placeholder{height:100%;display:flex;align-items:center;justify-content:center;text-align:center;background:#e1d2b9;color:#3a4550;font-weight:800}
-.caption{text-align:center;color:var(--muted);font-size:14px}
-.status{min-height:26px;color:#ffda93;font-weight:700;margin-top:16px}
-.note{color:var(--muted);font-size:13px;line-height:1.5}
-footer{padding-bottom:28px;color:var(--muted);font-size:13px}
+body{margin:0;background:radial-gradient(circle at 15% 0%,#263b68 0,#10172a 48%,#090e1b 100%);color:var(--cream);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.page{max-width:1080px;margin:auto;padding:24px 18px 48px}
+header{text-align:center;padding:20px 0 26px}
+.kicker{color:var(--gold);font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:800}
+h1{font-family:Georgia,serif;font-size:clamp(32px,7vw,54px);line-height:1.05;margin:10px 0;color:#fff4d9}
+.intro{max-width:650px;margin:0 auto;color:var(--muted);line-height:1.6}
+.panel{background:rgba(25,36,60,.92);border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:clamp(16px,3vw,26px);margin:18px 0;box-shadow:0 18px 50px #0005}
+h2{font-family:Georgia,serif;margin:0 0 14px;font-size:24px}
+.scenes{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.scene{border:2px solid transparent;background:#0d1527;color:var(--cream);border-radius:14px;padding:6px;overflow:hidden;text-align:left;cursor:pointer;min-width:0}
+.scene[aria-pressed=true]{border-color:var(--gold);box-shadow:0 0 0 2px #f4c76a33}
+.scene img{width:100%;height:118px;object-fit:cover;border-radius:9px;display:block}
+.scene span{display:block;font-size:12px;font-weight:700;padding:8px 3px 4px;line-height:1.25}
+.controls{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:end}
+label{display:block;font-weight:700;margin-bottom:8px}
+input[type=file],input[type=text]{width:100%;background:#0d1527;color:var(--cream);border:1px solid #52617d;border-radius:12px;padding:12px}
+.hint{font-size:12px;color:var(--muted);line-height:1.5;margin:8px 0 0}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+button.action{border:0;border-radius:999px;padding:13px 20px;font-weight:800;cursor:pointer;font-size:14px}
+.primary{background:var(--gold);color:#241a09}
+.secondary{background:#2c3b5b;color:white;border:1px solid #667796!important}
+button:disabled{opacity:.5;cursor:not-allowed}
+.preview-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,.8fr);gap:22px;align-items:center}
+canvas{display:block;width:100%;max-width:430px;margin:auto;border-radius:14px;background:#0b1220;box-shadow:0 12px 35px #0007}
+.preview-note{color:var(--muted);line-height:1.6;font-size:14px}
+.status{min-height:24px;color:var(--gold);font-size:13px;margin-top:12px}
+footer{text-align:center;color:#8997b2;font-size:12px;margin-top:25px}
+@media(max-width:720px){.scenes{grid-template-columns:repeat(2,minmax(0,1fr))}.scene img{height:145px}.preview-wrap{grid-template-columns:1fr}.controls{grid-template-columns:1fr}}
 </style>
 </head>
-<body><div class="page">
-<header><div class="kicker">A little voyage, just for you</div><div class="brand">The Grand Line Club ✦</div></header>
-<main>
-<div class="kicker">✦ A surprise for your friend ✦</div>
-<h1>Your adventure starts here.</h1>
-<p class="intro">Choose an anime-inspired scene, add a favourite photo, and make a postcard from your adventure.</p>
-<section class="panel"><div class="grid">
+<body>
+<div class="page">
+<header>
+<div class="kicker">A little piece of the Grand Line</div>
+<h1>The Grand Line Club</h1>
+<p class="intro">Choose an iconic moment, add your photo and make a keepsake postcard for your favourite person.</p>
+</header>
+
+<section class="panel">
+<h2>01 · Choose your scene</h2>
+<div class="scenes" id="sceneChoices">
+<button class="scene" type="button" data-scene="0" aria-pressed="true"><img src="crew.jpg" alt="One Piece crew"><span>Straw Hat Crew</span></button>
+<button class="scene" type="button" data-scene="1" aria-pressed="false"><img src="luffy-boa.jpg" alt="Luffy and Boa"><span>Luffy & Boa</span></button>
+<button class="scene" type="button" data-scene="2" aria-pressed="false"><img src="ace-luffy-hug.jpg" alt="Ace and Luffy embracing"><span>Brothers Forever</span></button>
+<button class="scene" type="button" data-scene="3" aria-pressed="false"><img src="ace-hat.jpg" alt="Ace with Luffy"><span>A Brother's Promise</span></button>
+<button class="scene" type="button" data-scene="4" aria-pressed="false"><img src="zoro.jpg" alt="Zoro with swords"><span>Swordsman Spirit</span></button>
+</div>
+</section>
+
+<section class="panel">
+<h2>02 · Add your photo and message</h2>
+<div class="controls">
 <div>
-<div class="kicker">01 / The photo booth</div><h2>Join the crew.</h2>
-<p class="intro">Choose a scene, upload a photo, and save a keepsake postcard.</p>
-<h3>Choose your scene</h3>
-<div class="scenes" role="group" aria-label="Choose a scene">
-<button class="scene" data-scene="crew" aria-pressed="true"><div class="art" style="--a:#1d7892;--b:#f6c15c">☀️ ⚓ 🌊</div><span>Sunny voyage</span></button>
-<button class="scene" data-scene="gear" aria-pressed="false"><div class="art" style="--a:#e8bd39;--b:#fff1a8">☁️ ✨ ☁️</div><span>Dream mode</span></button>
-<button class="scene" data-scene="brothers" aria-pressed="false"><div class="art" style="--a:#34425c;--b:#9b5360">🌙 🤝 ⭐</div><span>Best friends</span></button>
-<button class="scene" data-scene="hat" aria-pressed="false"><div class="art" style="--a:#a95e38;--b:#f2c77b">👒 🌅 💛</div><span> treasured moment</span></button>
-<button class="scene" data-scene="trio" aria-pressed="false"><div class="art" style="--a:#405b83;--b:#a9d5dc">⚔️ 🌊 ⚡</div><span>Adventure trio</span></button>
-</div>
-<label for="photo">Add your photo</label><input id="photo" type="file" accept="image/*">
-<p class="note">Your photo stays in this browser; it is not uploaded to a server.</p>
-<button id="download" class="primary" style="margin-top:18px;width:100%">Create & save postcard ↓</button>
-<div id="status" class="status" role="status" aria-live="polite"></div>
+<label for="photoInput">Upload a photo</label>
+<input id="photoInput" type="file" accept="image/*">
+<p class="hint">Optional. Your photo appears in a little framed snapshot on the postcard.</p>
 </div>
 <div>
-<div id="preview" class="preview"><div class="preview-art" id="previewArt" style="--a:#1d7892;--b:#f6c15c">☀️ ⚓ 🌊</div><div class="photo-frame"><div class="placeholder" id="placeholder">YOUR PHOTO<br>GOES HERE</div><img id="photoPreview" alt="Your uploaded photo"></div></div>
-<p class="caption">A little keepsake from your voyage ✦</p>
+<label for="messageInput">Your message</label>
+<input id="messageInput" type="text" maxlength="90" value="Friends are the treasure!" placeholder="Write a short message">
+<p class="hint">Keep it short and personal.</p>
 </div>
-</div></section>
-</main><footer>Made with a little pirate spirit. ✦</footer></div>
+</div>
+<div class="actions">
+<button class="action primary" id="createBtn" type="button">Create postcard</button>
+<button class="action secondary" id="downloadBtn" type="button" disabled>Download PNG</button>
+<button class="action secondary" id="shareBtn" type="button" disabled>Share postcard</button>
+</div>
+<div class="status" id="status" role="status" aria-live="polite">Choose a scene, then create your postcard.</div>
+</section>
+
+<section class="panel">
+<h2>03 · Your postcard</h2>
+<div class="preview-wrap">
+<canvas id="postcard" width="900" height="1200" aria-label="Postcard preview"></canvas>
+<div class="preview-note">
+<strong>Your postcard preview</strong>
+<p>The selected scene is used each time you press Create postcard. If you change scenes, create the postcard again before downloading or sharing.</p>
+<p>On Android, Share opens your phone's sharing menu when supported. If sharing files is unavailable, use Download PNG instead.</p>
+</div>
+</div>
+</section>
+<footer>Made with a little pirate spirit · The Grand Line Club</footer>
+</div>
 <script>
-const scenes={
-crew:{name:"Sunny voyage",a:"#1d7892",b:"#f6c15c",symbol:"☀️ ⚓ 🌊"},
-gear:{name:"Dream mode",a:"#e8bd39",b:"#fff1a8",symbol:"☁️ ✨ ☁️"},
-brothers:{name:"Best friends",a:"#34425c",b:"#9b5360",symbol:"🌙 🤝 ⭐"},
-hat:{name:"Treasured moment",a:"#a95e38",b:"#f2c77b",symbol:"👒 🌅 💛"},
-trio:{name:"Adventure trio",a:"#405b83",b:"#a9d5dc",symbol:"⚔️ 🌊 ⚡"}
-};
-let selected="crew",photo=null;
-const status=document.getElementById("status"),file=document.getElementById("photo");
-document.querySelectorAll("[data-scene]").forEach(btn=>btn.addEventListener("click",()=>{
- selected=btn.dataset.scene;
- document.querySelectorAll("[data-scene]").forEach(b=>b.setAttribute("aria-pressed",String(b===btn)));
- const s=scenes[selected],art=document.getElementById("previewArt");
- art.style.setProperty("--a",s.a);art.style.setProperty("--b",s.b);art.textContent=s.symbol;
- document.getElementById("preview").setAttribute("aria-label",s.name+" postcard preview");
- status.textContent=s.name+" selected.";
-}));
-file.addEventListener("change",()=>{
- const f=file.files&&file.files[0];if(!f)return;
- if(!f.type.startsWith("image/")){status.textContent="Please choose an image file.";file.value="";return;}
- const reader=new FileReader();
- reader.onload=()=>{photo=new Image();photo.onload=()=>{const p=document.getElementById("photoPreview");p.src=reader.result;p.style.display="block";document.getElementById("placeholder").style.display="none";status.textContent="Photo added. Your postcard is ready.";};photo.onerror=()=>status.textContent="Could not read that image. Try another.";photo.src=reader.result;};
- reader.readAsDataURL(f);
+const scenes = [
+{file:"crew.jpg", title:"Straw Hat Crew"},
+{file:"luffy-boa.jpg", title:"Luffy & Boa"},
+{file:"ace-luffy-hug.jpg", title:"Brothers Forever"},
+{file:"ace-hat.jpg", title:"A Brother's Promise"},
+{file:"zoro.jpg", title:"Swordsman Spirit"}
+];
+let selectedScene = 0;
+let uploadedPhoto = null;
+let postcardBlob = null;
+let sceneImages = [];
+
+const canvas = document.getElementById("postcard");
+const ctx = canvas.getContext("2d");
+const statusEl = document.getElementById("status");
+const downloadBtn = document.getElementById("downloadBtn");
+const shareBtn = document.getElementById("shareBtn");
+
+function loadImage(src) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = reject;
+    img.src = src;
+  });
+}
+function drawCover(img, x, y, w, h) {
+  const scale = Math.max(w / img.width, h / img.height);
+  const sw = w / scale, sh = h / scale;
+  const sx = (img.width - sw) / 2, sy = (img.height - sh) / 2;
+  ctx.drawImage(img, sx, sy, sw, sh, x, y, w, h);
+}
+function roundedRect(x,y,w,h,r,fill) {
+  ctx.beginPath(); ctx.roundRect(x,y,w,h,r); ctx.fillStyle=fill; ctx.fill();
+}
+function renderPostcard() {
+  const img = sceneImages[selectedScene];
+  if (!img) return;
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  drawCover(img,0,0,900,1200);
+  const shade = ctx.createLinearGradient(0,760,0,1200);
+  shade.addColorStop(0,"rgba(7,13,28,0)");
+  shade.addColorStop(1,"rgba(7,13,28,.88)");
+  ctx.fillStyle=shade; ctx.fillRect(0,650,900,550);
+  ctx.strokeStyle="#f4c76a"; ctx.lineWidth=14; ctx.strokeRect(18,18,864,1164);
+  ctx.strokeStyle="rgba(255,245,223,.75)"; ctx.lineWidth=2; ctx.strokeRect(34,34,832,1132);
+  if (uploadedPhoto) {
+    const x=565,y=760,w=245,h=300;
+    ctx.save(); ctx.shadowColor="#0009"; ctx.shadowBlur=22; ctx.shadowOffsetY=10;
+    roundedRect(x-12,y-12,w+24,h+24,8,"#fff8e9"); ctx.restore();
+    ctx.save(); ctx.beginPath(); ctx.rect(x,y,w,h); ctx.clip(); drawCover(uploadedPhoto,x,y,w,h); ctx.restore();
+    ctx.fillStyle="#26304a"; ctx.font="bold 19px Georgia"; ctx.textAlign="center";
+    ctx.fillText("OUR MOMENT",x+w/2,y+h+18);
+  }
+  ctx.textAlign="left";
+  ctx.fillStyle="#f4c76a"; ctx.font="bold 25px Arial";
+  ctx.fillText("THE GRAND LINE CLUB",58,1030);
+  ctx.fillStyle="#fff5df"; ctx.font="bold 46px Georgia";
+  let message=document.getElementById("messageInput").value.trim() || "Friends are the treasure!";
+  while(ctx.measureText(message).width>760 && message.length>8){message=message.slice(0,-2)+"…";}
+  ctx.fillText(message,58,1095);
+  ctx.fillStyle="#fff5df"; ctx.font="20px Arial";
+  ctx.fillText(scenes[selectedScene].title.toUpperCase(),58,1140);
+}
+async function makeBlob() {
+  return new Promise(resolve => canvas.toBlob(resolve,"image/png"));
+}
+document.querySelectorAll(".scene").forEach(btn => {
+  btn.addEventListener("click", () => {
+    selectedScene = Number(btn.dataset.scene);
+    document.querySelectorAll(".scene").forEach(b => b.setAttribute("aria-pressed", String(b === btn)));
+    postcardBlob = null;
+    downloadBtn.disabled = true; shareBtn.disabled = true;
+    statusEl.textContent = "Scene changed to " + scenes[selectedScene].title + ". Press Create postcard to update the preview.";
+  });
 });
-function drawCover(ctx,img,x,y,w,h){const scale=Math.max(w/img.width,h/img.height),dw=img.width*scale,dh=img.height*scale;ctx.drawImage(img,x+(w-dw)/2,y+(h-dh)/2,dw,dh);}
-document.getElementById("download").addEventListener("click",async()=>{
- if(!photo){status.textContent="Upload a photo first to create your postcard.";file.focus();return;}
- const btn=document.getElementById("download");btn.disabled=true;status.textContent="Creating your postcard…";
- try{
-  const s=scenes[selected],c=document.createElement("canvas");c.width=1200;c.height=900;const x=c.getContext("2d");
-  const g=x.createLinearGradient(0,0,1200,900);g.addColorStop(0,s.a);g.addColorStop(1,s.b);x.fillStyle=g;x.fillRect(0,0,1200,900);
-  x.globalAlpha=.22;for(let i=0;i<18;i++){x.beginPath();x.arc((i*197)%1200,(i*113)%900,35+(i%4)*18,0,Math.PI*2);x.fillStyle="#fff";x.fill();}x.globalAlpha=1;
-  x.fillStyle="#fff6dc";x.font="bold 76px sans-serif";x.textAlign="center";x.fillText(s.symbol,600,190);
-  x.fillStyle="#fff9eb";x.shadowColor="#17233788";x.shadowBlur=28;x.fillRect(155,235,550,535);x.shadowBlur=0;
-  x.save();x.beginPath();x.rect(175,255,510,475);x.clip();drawCover(x,photo,175,255,510,475);x.restore();
-  x.textAlign="left";x.fillStyle="#fff6dc";x.font="bold 34px sans-serif";x.fillText("GRAND LINE MEMORIES",65,835);
-  x.font="24px sans-serif";x.fillText(s.name.toUpperCase(),65,875);
-  const blob=await new Promise((resolve,reject)=>c.toBlob(b=>b?resolve(b):reject(new Error("Image export failed")),"image/png"));
-  const url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="anime-booth-postcard.png";document.body.appendChild(a);a.click();a.remove();
-  status.textContent="Postcard created. If it didn't save automatically, use Share to save the image.";
-  // Keep URL alive for mobile download handling.
-  setTimeout(()=>URL.revokeObjectURL(url),180000);
- }catch(e){status.textContent="Couldn't create postcard: "+e.message;}
- finally{btn.disabled=false;}
+document.getElementById("photoInput").addEventListener("change", event => {
+  const file = event.target.files && event.target.files[0];
+  if (!file) { uploadedPhoto=null; return; }
+  const reader = new FileReader();
+  reader.onload = async () => {
+    uploadedPhoto = await loadImage(reader.result);
+    postcardBlob=null; downloadBtn.disabled=true; shareBtn.disabled=true;
+    statusEl.textContent="Photo added. Press Create postcard to update the preview.";
+  };
+  reader.readAsDataURL(file);
 });
-</script></body></html>
+document.getElementById("createBtn").addEventListener("click", async () => {
+  try {
+    // Read the active button at click time so the latest scene is always used.
+    const active = document.querySelector('.scene[aria-pressed="true"]');
+    selectedScene = active ? Number(active.dataset.scene) : selectedScene;
+    renderPostcard();
+    postcardBlob = await makeBlob();
+    if (!postcardBlob) throw new Error("Could not create the image.");
+    downloadBtn.disabled=false; shareBtn.disabled=false;
+    statusEl.textContent="Your " + scenes[selectedScene].title + " postcard is ready!";
+  } catch (e) {
+    statusEl.textContent="Something went wrong while creating the postcard. Please try again.";
+  }
+});
+downloadBtn.addEventListener("click", () => {
+  if (!postcardBlob) return;
+  const url=URL.createObjectURL(postcardBlob);
+  const a=document.createElement("a");
+  a.href=url; a.download="grand-line-postcard.png";
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1500);
+  statusEl.textContent="Download started. Check your phone's Downloads folder.";
+});
+shareBtn.addEventListener("click", async () => {
+  if (!postcardBlob) return;
+  const file = new File([postcardBlob],"grand-line-postcard.png",{type:"image/png"});
+  try {
+    if (navigator.share && (!navigator.canShare || navigator.canShare({files:[file]}))) {
+      await navigator.share({files:[file],title:"My Grand Line postcard",text:"A little postcard made just for you!"});
+      statusEl.textContent="Share menu opened.";
+    } else {
+      statusEl.textContent="File sharing isn't supported here. Use Download PNG instead.";
+    }
+  } catch (e) {
+    if (e.name !== "AbortError") statusEl.textContent="Sharing didn't work. Please use Download PNG.";
+  }
+});
+(async()=>{
+  try {
+    sceneImages = await Promise.all(scenes.map(s=>loadImage(s.file)));
+    renderPostcard();
+  } catch(e) {
+    statusEl.textContent="Some scene images did not load. Check that the scenes folder was uploaded with index.html.";
+  }
+})();
+</script>
+</body>
+</html>
